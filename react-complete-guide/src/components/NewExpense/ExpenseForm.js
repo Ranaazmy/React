@@ -5,11 +5,11 @@ import '../NewExpense/ExpenseForm.css';
 function ExpenseForm() {
     const [enteredTitle, setEnteredTitle] = useState('');
     const [enteredAmount, setEnteredAmount] = useState('');
-    const [enteredTDate, setEnteredDate] = useState('');
+    const [enteredDate, setEnteredDate] = useState('');
     // const [userInput, setUserInput] = useState({
     //     enteredTitle: '',
     //     enteredAmount: '',
-    //     enteredTDate: ''
+    //     enteredDate: ''
     // });
 
     function titleChangeHandler(event) {
@@ -34,17 +34,21 @@ function ExpenseForm() {
         setEnteredDate(event.target.value);
         // setUserInput({
         //     ...userInput,
-        //     enteredTDate: event.target.value,
+        //     enteredDate: event.target.value,
         // })
     }
+
     function submitHandler(event) {
-       event.preventDefault();
-       const expenseData = {
-           title : enteredTitle,
-           amount : enteredAmount,
-           date: new Date(enteredTDate)
+        event.preventDefault();
+        const expenseData = {
+            title: enteredTitle,
+            amount: enteredAmount,
+            date: new Date(enteredDate)
         };
-       console.log(expenseData);
+        console.log(expenseData);
+        setEnteredTitle('');
+        setEnteredAmount('');
+        setEnteredDate('');
     }
 
     return (
@@ -53,6 +57,7 @@ function ExpenseForm() {
                 <div className="new-expense__control">
                     <label>Title</label>
                     <input type='text'
+                           value={enteredTitle}
                            onChange={titleChangeHandler}/>
                 </div>
 
@@ -61,6 +66,7 @@ function ExpenseForm() {
                     <input type='number'
                            min="0.01"
                            step="0.01"
+                           value={enteredAmount}
                            onChange={amountChangeHandler}/>
                 </div>
 
@@ -69,6 +75,7 @@ function ExpenseForm() {
                     <input type='date'
                            min="2019-01-01"
                            max="2022-12-31"
+                           value={enteredDate}
                            onChange={dateChangeHandler}/>
                 </div>
 
