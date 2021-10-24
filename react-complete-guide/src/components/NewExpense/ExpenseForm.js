@@ -3,39 +3,39 @@ import '../NewExpense/ExpenseForm.css';
 
 
 function ExpenseForm() {
-    // const [enteredTitle, setEnteredTitle] = useState('');
-    // const [enteredAmount, setEnteredAmount] = useState('');
-    // const [enteredTDate, setEnteredDate] = useState('');
-    const [userInput, setUserInput] = useState({
-        enteredTitle: '',
-        enteredAmount: '',
-        enteredTDate: ''
-    });
+    const [enteredTitle, setEnteredTitle] = useState('');
+    const [enteredAmount, setEnteredAmount] = useState('');
+    const [enteredTDate, setEnteredDate] = useState('');
+    // const [userInput, setUserInput] = useState({
+    //     enteredTitle: '',
+    //     enteredAmount: '',
+    //     enteredTDate: ''
+    // });
 
     function titleChangeHandler(event) {
-        // setEnteredTitle(event.target.value);
+        setEnteredTitle(event.target.value);
         //For Copying all the object with it's old state
-        setUserInput({
-            ...userInput,
-            enteredTitle: event.target.value,
-        })
+        // setUserInput({
+        //     ...userInput,
+        //     enteredTitle: event.target.value,
+        // })
 
     }
 
     function amountChangeHandler(event) {
-        // setEnteredAmount(event.target.value);
-        setUserInput({
-            ...userInput,
-            enteredAmount: event.target.value,
-        })
+        setEnteredAmount(event.target.value);
+        // setUserInput({
+        //     ...userInput,
+        //     enteredAmount: event.target.value,
+        // })
     }
 
     function dateChangeHandler(event) {
-        // setEnteredDate(event.target.value);
-        setUserInput({
-            ...userInput,
-            enteredTDate: event.target.value,
-        })
+        setEnteredDate(event.target.value);
+        // setUserInput({
+        //     ...userInput,
+        //     enteredTDate: event.target.value,
+        // })
     }
 
     return (
