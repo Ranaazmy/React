@@ -15,7 +15,7 @@ function Expenses(props) {
         <div>
             <Card className="expenses">
                 <ExpensesFilter onOptionSave={optionSave}/>
-                {props.items.map(expense => (
+                {props.items.map((expense) => (
                     <ExpenseItem
                         title={expense.title}
                         amount={expense.amount}
