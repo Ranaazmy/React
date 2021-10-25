@@ -7,19 +7,21 @@ import ExpensesFilter from "./ExpenseFilter";
 
 function Expenses(props) {
     const [enteredOption, setEnteredOption] = useState('2020');
+
     function optionSave(enteredOption) {
         setEnteredOption(enteredOption);
         console.log(enteredOption);
     }
 
     const filteredExpenses = props.items.filter(expense => {
-    return expense.date.getFullYear().toString() === enteredOption;
+        return expense.date.getFullYear().toString() === enteredOption;
     });
     return (
         <div>
             <Card className="expenses">
-                <ExpensesFilter selected ={enteredOption} onOptionSave={optionSave}/>
-                {filteredExpenses.map((expense) => (
+                <ExpensesFilter selected={enteredOption}
+                                onOptionSave={optionSave}/>
+                {filteredExpenses.length == 0 ? <p>No Expenses Found!</p> : filteredExpenses.map((expense) => (
                     <ExpenseItem
                         key={expense.id}
                         title={expense.title}
@@ -27,6 +29,7 @@ function Expenses(props) {
                         date={expense.date}
                     />
                 ))}
+                
             </Card>
         </div>
     );
